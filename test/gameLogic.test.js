@@ -1,14 +1,19 @@
 var expect = require('chai').expect
 require('chai').should()
 
-var gameLogic = require('../app/logic/gameLogic')
+import { Cell, buildBoard, initGame } from '../app/logic/gameLogic'
 var THREE = require('three')
 
 describe('Game Setup', function() {
+	let testGame, testLiveCell, testDeadCell, testBoard
+	const boardSize = 5
 
-	const testGame = gameLogic.initGame('main')
-	const testLiveCell = gameLogic.Cell({isAlive: true})
-	const testDeadCell = gameLogic.Cell({isAlive: false})
+	before(function() {
+		testGame = initGame('main')
+		testLiveCell = Cell({isAlive: true})
+		testDeadCell = Cell({isAlive: false})
+		testBoard = buildBoard({min: 2, max: 3, birth: 3, boardSize, seedRatio: .5})
+	})
 
 	describe('initGame method', function() {
 		it('should return an object', function() {
@@ -31,5 +36,26 @@ describe('Game Setup', function() {
 		})
 	})
 
+	describe('buildBoard method', function() {
+		it('should return a multi-dimensional array', function() {
+			expect(testBoard[boardSize - 1][boardSize - 1].length).to.equal(boardSize)
+		})
+
+		it('should produce an array filled with mesh objects', function() {
+			testBoard.forEach(board => {
+				board.forEach(board2 => {
+					board2.forEach(cell => {
+						expect(cell).to.be.an.instanceof(THREE.Mesh)
+					})
+				})
+			})
+		})
+	})
+
+	describe('drawBoard method', function() {
+		it('should target the specified div', function() {
+			
+		})
+	})
 
 })
