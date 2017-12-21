@@ -1,6 +1,7 @@
-var assert = require('assert')
-var expect = require('chai').expect
-var should = require('chai').should()
+require('assert')
+require('chai').expect
+require('chai').should()
+
 var gameLogic = require('../app/logic/gameLogic')
 
 describe('GameView', function() {

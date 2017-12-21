@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --watch",
-		"build": "webpack -w"
+    "build": "webpack -w"
   },
   "author": "Mark Hario",
   "license": "MIT",
@@ -20,6 +20,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
+		"eslint": "^4.13.1",
+		"eslint-plugin-react": "^7.5.1",
     "mocha": "^4.0.1"
   }
 }
