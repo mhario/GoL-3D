@@ -4,7 +4,7 @@
   "description": "Conway's Game of Life, in 3D",
   "main": "main.js",
   "scripts": {
-    "test": "npx mocha --watch",
+    "test": "npx mocha --require babel-core/register --watch",
     "build": "webpack -w"
   },
   "author": "Mark Hario",
