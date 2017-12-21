@@ -1,15 +1,16 @@
-require('assert')
-require('chai').expect
+var expect = require('chai').expect
 require('chai').should()
 
 var gameLogic = require('../app/logic/gameLogic')
+var THREE = require('three')
 
-describe('GameView', function() {
+describe('Game Setup', function() {
 
-	describe('buildGame method', function() {
+	const testGame = gameLogic.initGame('main')
+	const testLiveCell = gameLogic.Cell({isAlive: true})
+	const testDeadCell = gameLogic.Cell({isAlive: false})
 
-		const testGame = gameLogic.buildGameView('main')
-
+	describe('initGame method', function() {
 		it('should return an object', function() {
 			testGame.should.be.an('Object')
 		})
@@ -17,6 +18,18 @@ describe('GameView', function() {
 		it('should have a targetEl key, passed to method', function() {
 			testGame.targetEl.should.equal('main')
 		})
-
 	})
+
+	describe('Cell constructor method', function() {
+		it('should return a three.js mesh', function() {
+			expect(testLiveCell).to.be.an.instanceof(THREE.Mesh)
+		})
+
+		it('should only be visible if alive', function() {
+			expect(testLiveCell.material.visible).to.equal(true)
+			expect(testDeadCell.material.visible).to.equal(false)
+		})
+	})
+
+
 })
