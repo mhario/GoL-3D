@@ -43,6 +43,16 @@ export function buildBoard(rules, board = null) {
 			}
 		}
 
+		boardCells.runBoard = function(fn) {
+			boardCells.forEach(board => {
+				board.forEach(board2 => {
+					board2.forEach(cell => {
+						fn(cell)
+					})
+				})
+			})
+		}
+
 		return boardCells
 	} else {
 		// load
