@@ -5,11 +5,8 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	module: {
-		loaders: [
-			{
-				test: /jsx?$/,
-				exclude: /(node_modules|bower_components)/
-			}
+		rules: [
+			{ test: /jsx?$/, use: 'babel-loader' }
 		]
 	}
 }
