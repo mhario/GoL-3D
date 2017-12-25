@@ -1,7 +1,9 @@
 import React from 'react' // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom'
 
+import { GameView } from './render'
+
 ReactDOM.render (
-	<h1>GoL-3D</h1>,
+	<GameView />,
 	document.getElementById('main')
 )
