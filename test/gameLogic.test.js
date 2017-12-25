@@ -31,7 +31,7 @@ describe('Game Setup', function() {
 			expect(testLiveCell).to.be.an.instanceof(THREE.Mesh)
 		})
 
-		it('should only be visible if alive', function() {
+		it('should only be "visible" if alive', function() {
 			expect(testLiveCell.material.visible).to.equal(true)
 			expect(testDeadCell.material.visible).to.equal(false)
 		})
@@ -42,11 +42,11 @@ describe('Game Setup', function() {
 			expect(testBoard[boardSize - 1][boardSize - 1].length).to.equal(boardSize)
 		})
 
-		describe('runBoard(fn) method', function() {
-			it('should attach a runBoard(fn) method to the board', function() {
-				expect(testBoard.runBoard).to.be.a('function')
-			})
+		it('should attach a runBoard(fn) method to the board', function() {
+			expect(testBoard.runBoard).to.be.a('function')
+		})
 
+		describe('runBoard(fn) method', function() {
 			it('should execute once on every cell on the board', function() {
 				let cellsCounted = 0
 				testBoard.runBoard(() => {
@@ -57,7 +57,6 @@ describe('Game Setup', function() {
 		})
 
 		describe('array contents', function() {
-
 			it('should produce an array the designated size', function() {
 				let testBigBoard = buildBoard({min: 2, max: 3, birth: 3, boardSize: 5, seedRatio: .5})
 				let cellsCounted = 0
@@ -65,7 +64,6 @@ describe('Game Setup', function() {
 				testBigBoard.runBoard(() => {
 					cellsCounted++
 				})
-
 				expect(cellsCounted).to.equal(125)
 			})
 
