@@ -31,12 +31,9 @@ export function init() {
 
 
 	camera = new window.THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 )
-	// camera.position.x = 500
-	// camera.position.y = 500
-	// camera.position.z = -1000
-	// camera.position.x = BOARD_SIZE * CUBE_SIZE / 2
-	// camera.position.y = BOARD_SIZE * CUBE_SIZE / 2
-	// camera.position.z = BOARD_SIZE * CUBE_SIZE * 2
+	camera.position.x = BOARD_SIZE * CUBE_SIZE / 2
+	camera.position.y = BOARD_SIZE * CUBE_SIZE / 2
+	camera.position.z = BOARD_SIZE * CUBE_SIZE * 2
 	camera.position.set( 0, 0, 4000 )
 	camera.lookAt( scene.position )
 
@@ -53,7 +50,6 @@ export function init() {
 	light = new window.THREE.AmbientLight( 0x222222 )
 	scene.add( light )
 
-	geometry = new window.THREE.BoxGeometry( CUBE_SIZE, CUBE_SIZE, CUBE_SIZE )
 	window.addEventListener( 'resize', onWindowResize, false )
 
 	// let allCells = buildBoard()
@@ -65,15 +61,14 @@ function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight
 	camera.updateProjectionMatrix()
 	renderer.setSize( window.innerWidth, window.innerHeight )
-
-	console.log('cemra is at ', camera.position, scene.children);
+	renderer.render(scene, camera)
 }
 
-// function update() {
-// 	requestAnimationFrame( update )
-// 	controls.update()
-// 	renderer.render( scene, camera )
-// }
+function update() {
+	requestAnimationFrame( update )
+	controls.update()
+	renderer.render( scene, camera )
+}
 
 export function drawBoard(game) {
 	scene.add(camera)
@@ -81,12 +76,14 @@ export function drawBoard(game) {
 		scene.add(cell) // add the cell to the scene
 	})
 	// update()
-	renderer.render(scene, camera)
+	console.log('heres the game coming out of drawBoard', game[1][1][1])
+	update()
 }
 
 export function GameView() {
 	init()
 	let board = buildBoard({min: 2, max: 3, birth: 3, boardSize: 5, seedRatio: .5})
+	// console.log('inside of gameview ', board);
 	drawBoard(board)
 	return <h1>fail</h1>
 }
