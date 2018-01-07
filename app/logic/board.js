@@ -7,7 +7,7 @@ var THREE = require('three')
 var material, mesh, geometry
 
 // constructs a cell, should be loaded into gameView.boardState
-export function Cell(params) {
+function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
 	material = new THREE.MeshPhongMaterial( { color: LIVE_COLOR, wireframe: false })
 	material.visible = params.isAlive
