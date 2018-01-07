@@ -6,12 +6,6 @@ import {
 var THREE = require('three')
 var material, mesh, geometry
 
-export function initGame(targetEl) {
-	return {
-		targetEl: targetEl
-	}
-}
-
 // constructs a cell, should be loaded into gameView.boardState
 export function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
@@ -39,11 +33,11 @@ export function buildBoard(rules, board = null) {
 				for(let z = 0; z < rules.boardSize; z++){
 					let isAlive = (Math.random() < rules.seedRatio)
 					boardCells[x][y][z] = new Cell({ x, y, z, isAlive })
-					// scene.add(boardCells[x][y][z]); // add the cell to the scene
 				}
 			}
 		}
 
+		// run a passed method on every cell on the board
 		boardCells.runBoard = function(fn) {
 			boardCells.forEach(board => {
 				board.forEach(board2 => {
@@ -59,8 +53,4 @@ export function buildBoard(rules, board = null) {
 		// load
 		console.log('loading a saved board')
 	}
-}
-
-export function drawBoard(game) {
-	// next to do
 }
