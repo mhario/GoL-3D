@@ -35,13 +35,17 @@ export function Game(targetEl) {
 		container.appendChild( renderer.domElement )
 
 		camera = new window.THREE.PerspectiveCamera( 75, width / height, 1, 10000 )
-		let x = BOARD_SIZE * CUBE_SIZE * 2
-		let y = BOARD_SIZE * CUBE_SIZE * 2
-		let z = BOARD_SIZE * CUBE_SIZE * 2
-		camera.position.set( x, y, z )
+		const offsetValue = BOARD_SIZE * CUBE_SIZE
+		let cameraX = offsetValue - (offsetValue * 1.5)
+		let cameraY = offsetValue * 1.5
+		let cameraZ = offsetValue * 1.5
+		camera.position.set( cameraX, cameraY, cameraZ )
+
+		let targetXYZ = offsetValue / 2
 
 		controls = new window.THREE.OrbitControls( camera, renderer.domElement )
 		controls.enableZoom = true
+		controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
 
 		let light = new window.THREE.DirectionalLight( 0xcccccc )
 		light.position.set( 1, 1, 1 )
@@ -63,8 +67,6 @@ export function Game(targetEl) {
 		})
 		this.update()
 	}
-
-
 
 	this.onWindowResize = function() {
 		camera.aspect = window.innerWidth / window.innerHeight
