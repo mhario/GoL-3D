@@ -6,7 +6,14 @@ module.exports = {
 	devtool: 'source-map',
 	module: {
 		rules: [
-			{ test: /jsx?$/, use: 'babel-loader' }
+			{ test: /jsx?$/,
+				use: [{
+					loader: 'babel-loader',
+					options: {
+						compact: false
+					}
+				}]
+			}
 		]
 	}
 }
