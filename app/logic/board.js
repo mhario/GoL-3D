@@ -11,7 +11,7 @@ var material, mesh, geometry
 function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
 	material = new THREE.MeshPhongMaterial( { color: LIVE_COLOR, wireframe: false })
-	material.visible = true
+	material.visible = params.isAlive
 	material.isAlive = params.isAlive
 
 	mesh = new THREE.Mesh( geometry, material )
@@ -48,5 +48,4 @@ export function buildBoard({boardSize, seedRatio}) {
 			}
 		}
 	}
-	console.log('this board is ', this.board)
 }

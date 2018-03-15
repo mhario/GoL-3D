@@ -6,5 +6,4 @@ export function Game(targetEl) {
 	this.rules = {}
 	this.buildBoard = buildBoard
 	this.runBoard = runBoard
-
 }

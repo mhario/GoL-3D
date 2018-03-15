@@ -20,39 +20,30 @@ function init() {
 
 	addLights()
 
-
-
 	camera = new window.THREE.PerspectiveCamera( 75, width / height, 1, 10000 )
-	camera.position.set( 5000, 5000, -5000 )
-	scene.add(camera)
+	camera.position.set( cameraPos, cameraPos, cameraPos )
 
 	renderer = new window.THREE.WebGLRenderer()
 	renderer.setClearColor( 0x55aa55 )
 	renderer.setSize( window.innerWidth, window.innerHeight )
 
-	// document.body.appendChild( renderer.domElement )
 	controls = new window.THREE.OrbitControls( camera, renderer.domElement )
 	controls.enableZoom = true
 
 	var container = document.getElementById( 'game1' )
 	container.appendChild( renderer.domElement )
 
-
-	controls.target = new window.THREE.Vector3(0, 0, 0)
-	console.log('caera is ', controls, camera)
+	controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
 }
 
 function render() {
-	const width = window.width, height = window.height
-	renderer.setSize( width, height )
-
 	controls.update()
 	renderer.render(scene, camera)
 }
 
 function animate() {
-	render()
 	requestAnimationFrame( animate )
+	render()
 }
 
 function addLights() {
