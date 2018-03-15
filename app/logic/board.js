@@ -3,14 +3,17 @@ import {
 	LIVE_COLOR
 } from '../CONSTANTS'
 
+import { scene } from '../main'
+
 var THREE = require('three')
 var material, mesh, geometry
 
 function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
 	material = new THREE.MeshPhongMaterial( { color: LIVE_COLOR, wireframe: false })
-	material.visible = params.isAlive
+	material.visible = true
 	material.isAlive = params.isAlive
+
 	mesh = new THREE.Mesh( geometry, material )
 
 	mesh.position.x = params.x * CELL_SIZE
@@ -34,19 +37,16 @@ export function runBoard(fn) {
 }
 
 export function buildBoard({boardSize, seedRatio}) {
-	let boardCells = []
 	for(let x = 0; x < boardSize; x++){
-		boardCells[x] = []
+		this.board[x] = []
 		for(let y = 0; y < boardSize; y++){
-			boardCells[x][y] = []
+			this.board[x][y] = []
 			for(let z = 0; z < boardSize; z++){
 				let isAlive = (Math.random() < seedRatio)
-				boardCells[x][y][z] = new Cell({ x, y, z, isAlive })
+				this.board[x][y][z] = new Cell({ x, y, z, isAlive })
+				scene.add(this.board[x][y][z])
 			}
 		}
 	}
-
-	this.board = boardCells
+	console.log('this board is ', this.board)
 }
-
-// export function loadBoard() {}
