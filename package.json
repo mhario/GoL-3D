@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
-    "build": "webpack -w"
+    "build": "webpack -w & node-sass --watch  ./app/styles/index.scss ./public/styles.css",
+		"sass": "sass --watch /app/styles/index.scss:/public/styles.css"
   },
   "author": "Mark Hario",
   "license": "MIT",

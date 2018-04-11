@@ -30,7 +30,7 @@ function init() {
 	controls = new window.THREE.OrbitControls( camera, renderer.domElement )
 	controls.enableZoom = true
 
-	var container = document.getElementById( 'game1' )
+	var container = document.getElementById( 'game' )
 	container.appendChild( renderer.domElement )
 
 	controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
@@ -60,5 +60,5 @@ function addLights() {
 
 ReactDOM.render (
 	<GameView />,
-	document.getElementById('main')
+	document.getElementById('app')
 )

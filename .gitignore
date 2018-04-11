@@ -12,3 +12,7 @@ build/Release
 
 # Dependency directories
 node_modules
+
+# Build files
+public/bundle.*
+public/styles.css
