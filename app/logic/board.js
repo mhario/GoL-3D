@@ -36,7 +36,11 @@ export function runBoard(fn) {
 	})
 }
 
-export function buildBoard({boardSize, seedRatio}) {
+export function buildBoard() {
+
+	console.log('running method')
+	const boardSize= 8, seedRatio= .3
+
 	for(let x = 0; x < boardSize; x++){
 		this.board[x] = []
 		for(let y = 0; y < boardSize; y++){
