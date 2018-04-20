@@ -13,6 +13,14 @@ module.exports = {
 						compact: false
 					}
 				}]
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: [
+					'babel-loader',
+					'eslint-loader',
+				],
 			}
 		]
 	}
