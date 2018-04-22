@@ -13,7 +13,7 @@ export class Menu extends React.Component {
 				<h2>Mark Hario</h2>
 
 				<button
-					onClick={firstGame.buildBoard()}
+					onClick={firstGame.buildBoard}
 				>Rebuild</button>
 
 

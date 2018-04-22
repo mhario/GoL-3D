@@ -22,8 +22,17 @@ function Cell(params) {
 	mesh.isAlive = params.isAlive
 	mesh.isAliveNextTurn = null
 
+	// mesh.setState = _setState
+
 	return mesh
 }
+
+
+// function _setState(isAlive) {
+// 	console.log('setting state', isAlive)
+// 	mesh.isAlive = isAlive
+// 	mesh.visible = isAlive
+// }
 
 // run a passed method on every cell on the board
 export function runBoard(fn) {
@@ -38,8 +47,15 @@ export function runBoard(fn) {
 
 export function buildBoard() {
 
-	console.log('running method')
-	const boardSize= 8, seedRatio= .3
+	this.runBoard((cell) => {
+		// cell.setState(false)
+		cell.isAlive = false
+		cell.visible = false
+		// console.log('setting cell to dead', cell)
+	})
+
+	this.board = []
+	const boardSize= 5, seedRatio= .1
 
 	for(let x = 0; x < boardSize; x++){
 		this.board[x] = []
