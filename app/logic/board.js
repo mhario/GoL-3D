@@ -45,14 +45,7 @@ export function runBoard(fn) {
 }
 
 export function buildBoard() {
-
-	this.runBoard((cell) => {
-
-		cell.setState(false)
-		// cell.isAlive = false
-		// cell.visible = false
-		// console.log('setting cell to dead', cell)
-	})
+	this.clearBoard()
 
 	this.board = []
 	const boardSize= 5, seedRatio= .1
@@ -68,4 +61,10 @@ export function buildBoard() {
 			}
 		}
 	}
+}
+
+export function clearBoard() {
+	this.runBoard(cell => {
+		cell.setState(false)
+	})
 }

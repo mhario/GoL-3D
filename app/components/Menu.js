@@ -16,7 +16,6 @@ export class Menu extends React.Component {
 					onClick={firstGame.buildBoard}
 				>Rebuild</button>
 
-
 			</div>
 		)
 	}
