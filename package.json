@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
-    "build": "webpack -w & npm run sass-watch & npm run sass",
+    "build": "webpack & npm run sass-watch & npm run sass",
     "sass-watch": "node-sass --watch ./app/styles/index.scss ./public/styles.css",
 		"sass": "node-sass ./app/styles/index.scss ./public/styles.css"
   },

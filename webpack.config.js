@@ -4,6 +4,7 @@ module.exports = {
 		filename: 'public/bundle.js'
 	},
 	devtool: 'source-map',
+	watch: true,
 	module: {
 		rules: [
 			{ test: /jsx?$/,
