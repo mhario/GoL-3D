@@ -1,5 +1,6 @@
 import React from 'react'
 import { Game } from '../logic/game'
+import { ControlBoard } from './ControlBoard'
 
 export class Menu extends React.Component {
 
@@ -15,6 +16,10 @@ export class Menu extends React.Component {
 				<button
 					onClick={firstGame.buildBoard}
 				>Rebuild</button>
+
+				<ControlBoard
+					boardState={firstGame.board}
+				/>
 
 			</div>
 		)

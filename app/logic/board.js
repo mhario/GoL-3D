@@ -23,14 +23,20 @@ function Cell(params) {
 	mesh.isAliveNextTurn = null
 
 	mesh.setState = _setState.bind(mesh)
+	mesh.toggleState = _toggleState.bind(mesh)
 
 	return mesh
 }
 
 
 function _setState(isAlive) {
+
 	this.isAlive = isAlive
-	this.visible = isAlive
+	this.material.visible = isAlive
+}
+
+function _toggleState() {
+	this.setState(!this.isAlive)
 }
 
 // run a passed method on every cell on the board
@@ -48,7 +54,7 @@ export function buildBoard() {
 	this.clearBoard()
 
 	this.board = []
-	const boardSize= 5, seedRatio= .1
+	const boardSize = 5, seedRatio = .05
 
 	for(let x = 0; x < boardSize; x++){
 		this.board[x] = []
