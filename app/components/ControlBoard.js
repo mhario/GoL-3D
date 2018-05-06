@@ -1,16 +1,38 @@
 import React from 'react'
 
 export class ControlBoard extends React.Component {
+	_increaseFloor() {
+		const cubeSize = this.props.boardState.length
+		const atMaxLevel = this.state.level < cubeSize
+		this.setState({ level: atMaxLevel ? this.state.level + 1 : this.state.level })
+	}
+	_decreaseFloor() {
+		this.setState({ level: this.state.level > 1 ? this.state.level - 1 : 1 })
+	}
+	_toggleCellState(cell) {
+		cell.toggleState()
+		this.forceUpdate()
+	}
 
 	constructor(props) {
 		super(props)
-		this.state = { level: 0 }
+		this.state = { level: 1 }
+
+		this.toggleCellState = this._toggleCellState.bind(this)
+		this.increaseFloor = this._increaseFloor.bind(this)
+		this.decreaseFloor = this._decreaseFloor.bind(this)
 	}
+
 	render () {
-		let tableArr = this.props.boardState[this.state.level].map((cellArr) => {
+		let tableArr = this.props.boardState[this.state.level - 1].map((cellArr) => {
 			return cellArr.map((cell, idx) => {
 				return (
-					<div className="table-cell" key={idx} style={{width: 50}} onClick={() => cell.toggleState()}>  {cell.isAlive ? '.' : 'X'}  </div>
+					<div className="table-cell"
+						key={idx} style={{width: 50}}
+						onClick={() => this.toggleCellState(cell)}
+					>
+						{cell.isAlive ? '.' : 'X'}
+					</div>
 				)
 			})
 		})
@@ -18,8 +40,8 @@ export class ControlBoard extends React.Component {
 		return (
 			<div>
 				<div>
-					<button onClick={() => this.setState({ level: this.state.level ? this.state.level - 1 : 0 })}> -- </button>
-					<button onClick={() => this.setState({ level: this.state.level < tableArr.length ? this.state.level + 1 : this.state.level})}> ++ </button>
+					<button onClick={this.decreaseFloor}> -- </button>
+					<button onClick={this.increaseFloor}> ++ </button>
 				</div>
 				{this.state.level}
 				<div className="control-board-table">
