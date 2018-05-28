@@ -2,8 +2,8 @@
 .menu {
 	background-color: gray;
 	border: 1px solid black;
-	width: 20%;
-	height: 200px;
+	width: 275px;
+	height: 300px;
 
 }
 
@@ -13,6 +13,9 @@
 	.table-cell {
 		background-color: white;
 		display: inline-block;
-		border: 1px solid black;
+		border: 1px solid gray;
+		height: 50px; width: 50px;
+		&.live { background-color: green; }
+		&.dead { background-color: red; }
 	}
 }

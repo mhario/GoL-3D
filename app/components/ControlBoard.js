@@ -24,18 +24,21 @@ export class ControlBoard extends React.Component {
 	}
 
 	render () {
-		let tableArr = this.props.boardState[this.state.level - 1].map((cellArr) => {
-			return cellArr.map((cell, idx) => {
-				return (
-					<div className="table-cell"
-						key={idx} style={{width: 50}}
-						onClick={() => this.toggleCellState(cell)}
-					>
-						{cell.isAlive ? '.' : 'X'}
-					</div>
-				)
+		let tableArr = this.props.boardState[this.state.level - 1]
+			.map((cellArr) => {
+				const tableArr = cellArr.map((cell, idx) => {
+					return (
+						<div
+							className={`table-cell ${cell.isAlive ? 'live' : 'dead'}`}
+							key={idx}
+							onClick={() => this.toggleCellState(cell)}
+						></div>
+					)
+				})
+				// tableArr.push(<br />)
+				return tableArr
 			})
-		})
+
 
 		return (
 			<div>
