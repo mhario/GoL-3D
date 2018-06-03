@@ -3,6 +3,8 @@ import {
 	LIVE_COLOR
 } from '../CONSTANTS'
 
+import { scene } from '../main'
+
 var THREE = require('three')
 var material, mesh, geometry
 
@@ -11,6 +13,7 @@ function Cell(params) {
 	material = new THREE.MeshPhongMaterial( { color: LIVE_COLOR, wireframe: false })
 	material.visible = params.isAlive
 	material.isAlive = params.isAlive
+
 	mesh = new THREE.Mesh( geometry, material )
 
 	mesh.position.x = params.x * CELL_SIZE
@@ -19,7 +22,21 @@ function Cell(params) {
 	mesh.isAlive = params.isAlive
 	mesh.isAliveNextTurn = null
 
+	mesh.setState = _setState.bind(mesh)
+	mesh.toggleState = _toggleState.bind(mesh)
+
 	return mesh
+}
+
+
+function _setState(isAlive) {
+
+	this.isAlive = isAlive
+	this.material.visible = isAlive
+}
+
+function _toggleState() {
+	this.setState(!this.isAlive)
 }
 
 // run a passed method on every cell on the board
@@ -33,20 +50,27 @@ export function runBoard(fn) {
 	})
 }
 
-export function buildBoard({boardSize, seedRatio}) {
-	let boardCells = []
+export function buildBoard() {
+	this.clearBoard()
+
+	this.board = []
+	const boardSize = 5, seedRatio = .05
+
 	for(let x = 0; x < boardSize; x++){
-		boardCells[x] = []
+		this.board[x] = []
 		for(let y = 0; y < boardSize; y++){
-			boardCells[x][y] = []
+			this.board[x][y] = []
 			for(let z = 0; z < boardSize; z++){
 				let isAlive = (Math.random() < seedRatio)
-				boardCells[x][y][z] = new Cell({ x, y, z, isAlive })
+				this.board[x][y][z] = new Cell({ x, y, z, isAlive })
+				scene.add(this.board[x][y][z])
 			}
 		}
 	}
-
-	this.board = boardCells
 }
 
-// export function loadBoard() {}
+export function clearBoard() {
+	this.runBoard(cell => {
+		cell.setState(false)
+	})
+}

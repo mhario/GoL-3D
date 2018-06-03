@@ -1,0 +1,8 @@
+@import './menu.scss';
+@import './game.scss';
+
+#app {
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+}
