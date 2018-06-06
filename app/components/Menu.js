@@ -1,6 +1,6 @@
 import React from 'react'
 import { Game } from '../logic/game'
-import { ControlBoard } from './ControlBoard'
+import { ControlBoard } from './ControlBoard/'
 
 export class Menu extends React.Component {
 

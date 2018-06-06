@@ -1,4 +1,5 @@
 import React from 'react'
+import ControlTable from './ControlTable'
 
 export class ControlBoard extends React.Component {
 	_increaseFloor() {
@@ -24,22 +25,6 @@ export class ControlBoard extends React.Component {
 	}
 
 	render () {
-		let tableArr = this.props.boardState[this.state.level - 1]
-			.map((cellArr) => {
-				const tableArr = cellArr.map((cell, idx) => {
-					return (
-						<div
-							className={`table-cell ${cell.isAlive ? 'live' : 'dead'}`}
-							key={idx}
-							onClick={() => this.toggleCellState(cell)}
-						></div>
-					)
-				})
-				// tableArr.push(<br />)
-				return tableArr
-			})
-
-
 		return (
 			<div>
 				<div>
@@ -48,7 +33,11 @@ export class ControlBoard extends React.Component {
 				</div>
 				{this.state.level}
 				<div className="control-board-table">
-					{tableArr}
+					<ControlTable
+						boardState={this.props.boardState}
+						level={this.state.level}
+						toggleCellState={this.toggleCellState}
+					/>
 				</div>
 			</div>
 		)
