@@ -4,7 +4,7 @@ import { CustomBoard } from './CustomBoard/'
 import { RandomBoard } from './RandomBoard/'
 import { SavedBoard } from './SavedBoard/'
 
-export class TabBar extends React.Component {
+class TabBar extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -60,3 +60,5 @@ function CurrentTab(props) {
 		/>
 	}
 }
+
+export default TabBar

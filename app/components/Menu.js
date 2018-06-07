@@ -1,6 +1,6 @@
 import React from 'react'
 import { Game } from '../logic/game'
-import { TabBar } from './TabBar'
+import TabBar from './tabs/'
 
 export class Menu extends React.Component {
 	constructor() {
