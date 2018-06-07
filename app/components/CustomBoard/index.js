@@ -1,7 +1,7 @@
 import React from 'react'
-import ControlTable from './ControlTable'
+import CustomTable from './CustomBoardTable'
 
-export class ControlBoard extends React.Component {
+export class CustomBoard extends React.Component {
 	_increaseFloor() {
 		const cubeSize = this.props.boardState.length
 		const atMaxLevel = this.state.level < cubeSize
@@ -29,10 +29,10 @@ export class ControlBoard extends React.Component {
 			<div>
 				<div>
 					<button onClick={this.decreaseFloor}> -- </button>
+					{this.state.level}
 					<button onClick={this.increaseFloor}> ++ </button>
 				</div>
-				{this.state.level}
-				<ControlTable
+				<CustomTable
 					boardState={this.props.boardState}
 					level={this.state.level}
 					toggleCellState={this.toggleCellState}
