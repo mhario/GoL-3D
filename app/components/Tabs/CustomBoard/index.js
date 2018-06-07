@@ -1,6 +1,7 @@
 import React from 'react'
+import CustomTable from './CustomBoardTable'
 
-export class ControlBoard extends React.Component {
+export class CustomBoard extends React.Component {
 	_increaseFloor() {
 		const cubeSize = this.props.boardState.length
 		const atMaxLevel = this.state.level < cubeSize
@@ -24,32 +25,18 @@ export class ControlBoard extends React.Component {
 	}
 
 	render () {
-		let tableArr = this.props.boardState[this.state.level - 1]
-			.map((cellArr) => {
-				const tableArr = cellArr.map((cell, idx) => {
-					return (
-						<div
-							className={`table-cell ${cell.isAlive ? 'live' : 'dead'}`}
-							key={idx}
-							onClick={() => this.toggleCellState(cell)}
-						></div>
-					)
-				})
-				// tableArr.push(<br />)
-				return tableArr
-			})
-
-
 		return (
 			<div>
 				<div>
 					<button onClick={this.decreaseFloor}> -- </button>
+					{this.state.level}
 					<button onClick={this.increaseFloor}> ++ </button>
 				</div>
-				{this.state.level}
-				<div className="control-board-table">
-					{tableArr}
-				</div>
+				<CustomTable
+					boardState={this.props.boardState}
+					level={this.state.level}
+					toggleCellState={this.toggleCellState}
+				/>
 			</div>
 		)
 	}
