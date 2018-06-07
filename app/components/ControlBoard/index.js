@@ -32,13 +32,11 @@ export class ControlBoard extends React.Component {
 					<button onClick={this.increaseFloor}> ++ </button>
 				</div>
 				{this.state.level}
-				<div className="control-board-table">
-					<ControlTable
-						boardState={this.props.boardState}
-						level={this.state.level}
-						toggleCellState={this.toggleCellState}
-					/>
-				</div>
+				<ControlTable
+					boardState={this.props.boardState}
+					level={this.state.level}
+					toggleCellState={this.toggleCellState}
+				/>
 			</div>
 		)
 	}
