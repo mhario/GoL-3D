@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
-    "build": "webpack & npm run sass-watch & npm run sass",
+    "build": "webpack --config webpack.config & npm run sass-watch & npm run sass",
     "sass-watch": "node-sass --watch ./app/styles/index.scss ./public/styles.css",
     "sass": "node-sass ./app/styles/index.scss ./public/styles.css",
-    "webpack": "webpack --config webpack.config"
+    "webpack": "webpack --config webpack.config --progress"
   },
   "author": "Mark Hario",
   "license": "MIT",

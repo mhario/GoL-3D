@@ -1,12 +1,11 @@
 import React from 'react'
 import { Game } from '../logic/game'
-import TabBar from './tabs/'
+import TabBar from './Tabs/'
 
 export class Menu extends React.Component {
 	constructor() {
 		super()
 	}
-
 
 	render() {
 		let firstGame = new Game('game')

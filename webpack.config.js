@@ -10,14 +10,14 @@ module.exports = {
 	watch: true,
 	module: {
 		rules: [
-		// 	{ test: /jsx?$/,
-		// 		use: [{
-		// 			loader: 'babel-loader',
-		// 			options: {
-		// 				compact: false
-		// 			}
-		// 		}]
-		// 	},
+			{ test: /jsx?$/,
+				use: [{
+					loader: 'babel-loader',
+					options: {
+						compact: false
+					}
+				}]
+			},
 			{
 				test: /\.js$/,
 				include: path.resolve(__dirname, 'app'),

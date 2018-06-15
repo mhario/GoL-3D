@@ -48,15 +48,15 @@ function CurrentTab(props) {
 		/>
 	} else if (props.currentTab === 'RandomBoard') {
 		return <RandomBoard
-			boardState={props.game.board}
+			game={props.game}
 		/>
 	} else if (props.currentTab === 'SavedBoard') {
 		return <SavedBoard
-			boardState={props.game.board}
+			game={props.game}
 		/>
 	} else {
 		return <CustomBoard
-			boardState={props.game.board}
+			game={props.game}
 		/>
 	}
 }

@@ -28,9 +28,7 @@ function Cell(params) {
 	return mesh
 }
 
-
 function _setState(isAlive) {
-
 	this.isAlive = isAlive
 	this.material.visible = isAlive
 }
@@ -52,16 +50,14 @@ export function runBoard(fn) {
 
 export function buildBoard() {
 	this.clearBoard()
-
 	this.board = []
-	const boardSize = 5, seedRatio = .05
 
-	for(let x = 0; x < boardSize; x++){
+	for(let x = 0; x < this.boardSize; x++){
 		this.board[x] = []
-		for(let y = 0; y < boardSize; y++){
+		for(let y = 0; y < this.boardSize; y++){
 			this.board[x][y] = []
-			for(let z = 0; z < boardSize; z++){
-				let isAlive = (Math.random() < seedRatio)
+			for(let z = 0; z < this.boardSize; z++){
+				let isAlive = (Math.random() < this.seedRatio)
 				this.board[x][y][z] = new Cell({ x, y, z, isAlive })
 				scene.add(this.board[x][y][z])
 			}
