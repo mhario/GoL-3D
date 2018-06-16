@@ -28,12 +28,13 @@ export class CustomBoard extends React.Component {
 		return (
 			<div>
 				<div>
+					<button onClick={this.props.game.buildBoard}>Rebuild</button>
 					<button onClick={this.decreaseFloor}> -- </button>
 					{this.state.level}
 					<button onClick={this.increaseFloor}> ++ </button>
 				</div>
 				<CustomTable
-					boardState={this.props.boardState}
+					boardState={this.props.game.board}
 					level={this.state.level}
 					toggleCellState={this.toggleCellState}
 				/>

@@ -6,11 +6,14 @@ export class RandomBoard extends React.Component {
 	constructor(props) {
 		super(props)
 	}
-	render(props) {
+	render() {
 		return (
 			<div>
 				Random board
-				<BoardSizeSlider label="Board Size" game={this.props.game} />
+				<button onClick={this.props.game.buildBoard}>
+					Rebuild
+				</button>
+				<BoardSizeSlider label="Board Size" game={this.props.game}/>
 				<BoardLifeSlider label="Board life ratio" game={this.props.game}/>
 			</div>
 		)

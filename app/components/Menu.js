@@ -16,9 +16,6 @@ export class Menu extends React.Component {
 				<h1>Game Of Life</h1>
 				<h3>Mark Hario</h3>
 
-				<button
-					onClick={firstGame.buildBoard}
-				>Rebuild</button>
 				<TabBar
 					game={firstGame}
 				/>

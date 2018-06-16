@@ -3,12 +3,10 @@ import React from 'react' //eslint-disable-line no-unused-vars
 const _decreaseSize = (game) => {
 	game.boardSize--
 	game.buildBoard()
-	console.log('board is ', game)
 }
 const _increaseSize = (game) => {
 	game.boardSize++
 	game.buildBoard()
-	console.log('board is ', game)
 }
 
 export const BoardSizeSlider = (props) => {

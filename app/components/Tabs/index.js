@@ -44,7 +44,7 @@ class TabBar extends React.Component {
 function CurrentTab(props) {
 	if (props.currentTab === 'CustomBoard') {
 		return <CustomBoard
-			boardState={props.game.board}
+			game={props.game}
 		/>
 	} else if (props.currentTab === 'RandomBoard') {
 		return <RandomBoard
