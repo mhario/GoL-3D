@@ -14,5 +14,4 @@ build/Release
 node_modules
 
 # Build files
-public/bundle.*
-public/styles.css
+public/build/*

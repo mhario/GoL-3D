@@ -5,18 +5,13 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
-    "build": "webpack --config webpack.config & npm run sass-watch & npm run sass",
-    "sass-watch": "node-sass --watch ./app/styles/index.scss ./public/styles.css",
-    "sass": "node-sass ./app/styles/index.scss ./public/styles.css",
-    "webpack": "webpack --config webpack.config --progress"
+    "build": "webpack --config webpack.config --progress"
   },
   "author": "Mark Hario",
   "license": "MIT",
   "dependencies": {
-    "eslint-loader": "^2.0.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "three": "^0.89.0"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -24,9 +19,14 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
+    "css-loader": "^0.28.11",
     "eslint": "^4.13.1",
+    "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.5.1",
     "mocha": "^4.0.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "webpack": "^3.12.0"
   }
 }

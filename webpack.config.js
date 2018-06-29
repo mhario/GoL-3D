@@ -2,15 +2,19 @@ const path = require('path')
 /* global __dirname */
 
 module.exports = {
-	entry: './app/main.js',
+	entry: {
+		bundle: './app/main.js',
+		styles: './app/styles/index.scss'
+	},
 	output: {
-		filename: 'public/bundle.js'
+		filename: 'public/build/[name].js'
 	},
 	// devtool: 'source-map',
 	watch: true,
 	module: {
 		rules: [
-			{ test: /jsx?$/,
+			{
+				test: /jsx?$/,
 				use: [{
 					loader: 'babel-loader',
 					options: {
@@ -25,7 +29,18 @@ module.exports = {
 				use: [
 					'babel-loader',
 					'eslint-loader',
-				],
+				]
+			},
+			{
+				test: /\.scss$/,
+				include: path.resolve(__dirname, 'app/styles'),
+				
+				exclude: /node_modules/,
+				use: [
+					"style-loader",
+					"css-loader",
+					"sass-loader"
+				]
 			}
 		]
 	}
