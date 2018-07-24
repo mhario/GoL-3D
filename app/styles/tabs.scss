@@ -1,0 +1,41 @@
+$button-size: 50px;
+
+.control-board-table {
+	background-color: white;
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+	.table-cell {
+		background-color: white;
+		display: inline-block;
+		border: 1px solid black;
+		padding: 0;
+		height: 50px; width: 50px;
+		&.live { background-color: green; }
+		&.dead { background-color: red; }
+	}
+}
+
+.board-settings {
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        button {
+            background-color: darkgrey;
+        }
+    }
+
+    .slider {
+        button {
+            height: $button-size;
+            width: $button-size;
+
+            &:last-child {
+                float: right;
+            }
+        }
+        .slider-bar {
+            width: 100%
+        }
+    }
+}

@@ -1,22 +1,15 @@
+@import './tabs.scss';
+
 .menu {
 	background-color: lightgray;
 	border: none;
-	width: 275px;
+	width: 273px;
 	display: inline-block;
 }
 
-.control-board-table {
-	background-color: white;
-	border-collapse: collapse;
-	border: none;
-	width: 100%;
-	.table-cell {
-		background-color: white;
-		display: inline-block;
-		border: 1px solid black;
-		padding: 0;
-		height: 50px; width: 50px;
-		&.live { background-color: green; }
-		&.dead { background-color: red; }
-	}
+button {
+	min-height: 25px;
+	background-color: darkgrey;
+	color: white;
+	border: 1px solid black;
 }

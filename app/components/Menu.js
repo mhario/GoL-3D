@@ -29,6 +29,8 @@ export class Menu extends React.Component {
 						? <button>Playing!</button>
 						: <button onClick={this.play}>Play</button>
 				}
+				
+				<button onClick={this.state.firstGame.buildBoard}>Rebuild</button>
 				<TabBar
 					game={this.state.firstGame}
 				/>
