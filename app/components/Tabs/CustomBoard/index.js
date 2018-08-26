@@ -3,7 +3,7 @@ import CustomTable from './CustomBoardTable'
 
 export class CustomBoard extends React.Component {
 	_increaseFloor() {
-		const cubeSize = this.props.boardState.length
+		const cubeSize = this.props.game.board.length
 		const atMaxLevel = this.state.level < cubeSize
 		this.setState({ level: atMaxLevel ? this.state.level + 1 : this.state.level })
 	}
@@ -27,16 +27,17 @@ export class CustomBoard extends React.Component {
 	render () {
 		return (
 			<div>
-				<div>
-					<button onClick={this.props.game.buildBoard}>Rebuild</button>
-					<button onClick={this.decreaseFloor}> -- </button>
-					{this.state.level}
-					<button onClick={this.increaseFloor}> ++ </button>
+				<div className="slider">
+					<button onClick={ this.decreaseFloor }> -- </button>
+					<div className="slider-bar">
+						<button>{ this.state.level }</button>
+					</div>
+					<button onClick={ this.increaseFloor }> ++ </button>
 				</div>
 				<CustomTable
-					boardState={this.props.game.board}
-					level={this.state.level}
-					toggleCellState={this.toggleCellState}
+					boardState={ this.props.game.board }
+					level={ this.state.level }
+					toggleCellState={ this.toggleCellState }
 				/>
 			</div>
 		)
