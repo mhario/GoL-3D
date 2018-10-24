@@ -13,4 +13,12 @@ Priorities:
     *MVP
     - Play button
         - speed slider
-        
+
+- Camera
+    - Fix center position
+
+- Performance
+    - Move 'addNeighbors' out of buildBoard
+    - Rewrite addNeighbors
+    
+
