@@ -23,19 +23,24 @@ class TabBar extends React.Component {
 			<section className="board-settings">
 				<div className="tabs">
 					<button
-						onClick={() => { this.setCurrentTab('CustomBoard') }}>
+						onClick={() => {
+							this.setCurrentTab('CustomBoard')}}>
 						Custom Board
 					</button>
 					<button
-						onClick={() => { this.setCurrentTab('RandomBoard') }}>
+						onClick={() => {
+							this.setCurrentTab('RandomBoard')}}>
 						Random Board
 					</button>
 					<button
-						onClick={() => { this.setCurrentTab('SavedBoard') }}>
+						onClick={() => {
+							this.setCurrentTab('SavedBoard')}}>
 						Saved Board
 					</button>
 				</div>
-				<CurrentTab currentTab={this.state.currentTab} game={this.props.game}/>
+				<CurrentTab
+					currentTab={this.state.currentTab}
+					game={this.props.game}/>
 			</section>
 		)
 	}
