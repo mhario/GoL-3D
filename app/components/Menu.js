@@ -41,20 +41,26 @@ export class Menu extends React.Component {
 			<div className="menu">
 				<h1>Game Of Life</h1>
 				<h3>Mark Hario</h3>
-				{
-					this.state.playing
-						? <button onClick={this.togglePlay}>Playing!</button>
-						: <button onClick={this.togglePlay}>Play</button>
-				}
-				<button
-					onClick={this.stepTurn}>
-					Step Turn
-				</button>
-				
-				<button
-					onClick={this.state.firstGame.buildBoard}>
-					Rebuild
-				</button>
+				<div className="menu-top-row">
+					<button
+						className={`btn-play ${this.state.playing && 'playing'}`}
+						onClick={this.togglePlay}>
+						{
+							this.state.playing
+								? 'Playing!'
+								: 'Play'
+						}
+					</button>
+					<button
+						onClick={this.stepTurn}>
+						Step Turn
+					</button>
+					
+					<button
+						onClick={this.state.firstGame.buildBoard}>
+						Rebuild
+					</button>
+				</div>
 				<TabBar
 					game={this.state.firstGame}
 				/>

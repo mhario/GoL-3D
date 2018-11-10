@@ -5,7 +5,23 @@
 	border: none;
 	width: 273px;
 	display: inline-block;
+	padding: 10px;
+	text-align: center;
+
+	.menu-top-row {
+		display: flex;
+		flex-direction: row;
+
+		.btn-play {
+			height: $btn-size;
+			flex: 2;
+			&.playing {
+				background-color: green;
+			}
+		}
+	}
 }
+
 
 button {
 	min-height: 25px;

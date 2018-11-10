@@ -28,11 +28,19 @@ export class CustomBoard extends React.Component {
 		return (
 			<div>
 				<div className="slider">
-					<button onClick={ this.decreaseFloor }> -- </button>
+					<button
+						onClick={ this.decreaseFloor }>
+						--
+					</button>
 					<div className="slider-bar">
-						<button>{ this.state.level }</button>
+						<div className="counter">
+							{ this.state.level }
+						</div>
 					</div>
-					<button onClick={ this.increaseFloor }> ++ </button>
+					<button
+						onClick={ this.increaseFloor }>
+						++
+					</button>
 				</div>
 				<CustomTable
 					boardState={ this.props.game.board }
