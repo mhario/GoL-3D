@@ -15,6 +15,7 @@ export class Menu extends React.Component {
 		this.togglePlay = this._togglePlay.bind(this)
 		this.stepTurn = this._stepTurn.bind(this)
 		this.runTurns = this._runTurns.bind(this)
+		this.rebuild = this._rebuild.bind(this)
 	}
 
 	_togglePlay() {
@@ -34,6 +35,12 @@ export class Menu extends React.Component {
 
 	_stepTurn() {
 		calcTurn(this.state.firstGame.board)
+		this.forceUpdate()
+	}
+
+	_rebuild() {
+		this.state.firstGame.buildBoard()
+		this.forceUpdate()
 	}
 
 	render() {
@@ -57,7 +64,7 @@ export class Menu extends React.Component {
 					</button>
 					
 					<button
-						onClick={this.state.firstGame.buildBoard}>
+						onClick={() => { this.rebuild() }}>
 						Rebuild
 					</button>
 				</div>

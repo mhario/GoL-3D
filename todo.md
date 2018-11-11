@@ -16,9 +16,14 @@ Priorities:
 
 - Camera
     - Fix center position
+    - Update background render on window resize
+
 
 - Performance
     - Move 'addNeighbors' out of buildBoard
     - Rewrite addNeighbors
-    
 
+
+
+- Lower
+    - Remove all the forceUpdates, maybe use a flashing boolean
