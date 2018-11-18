@@ -10,7 +10,6 @@ const _increaseSize = (game) => {
 }
 
 export const BoardSizeSlider = (props) => {
-	console.log('rendering', props.game.boardSize)
 	return (
 		<div
 			className="board-size">

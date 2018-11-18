@@ -1,0 +1,33 @@
+.slider {
+	display: flex;
+
+	button {
+		height: $btn-size;
+		width: $btn-size;
+
+		&:last-child {
+			float: right;
+		}
+	}
+	.slider-bar {
+		height: $btn-size;
+		background-color: grey;
+		width: 100%
+	}
+}
+
+.control-board-table {
+	background-color: white;
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+	.table-cell {
+		background-color: white;
+		display: inline-block;
+		border: 1px solid black;
+		padding: 0;
+		height: 50px; width: 50px;
+		&.live { background-color: green; }
+		&.dead { background-color: red; }
+	}
+}

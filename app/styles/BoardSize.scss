@@ -1,0 +1,25 @@
+
+.board-size-row {
+	height: 50px;
+	display: flex;
+
+	.board-size {
+		flex: 1;
+
+		.label {
+			padding: 0 5px;
+		}
+	}
+
+	button {
+		height: 50px;
+		width: 50px;
+		margin: 5px;
+	}
+
+	.current-size {
+		display: inline-block;
+		text-align: center;
+		width: 25px;
+	}
+}
