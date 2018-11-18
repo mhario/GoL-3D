@@ -1,12 +1,13 @@
-@import './tabs.scss';
 
 .menu {
-	background-color: lightgray;
+	@import './PlayBar.scss';
+	@import './BoardSize.scss';
+	@import './ControlBoard.scss';
+
+	background-color: rgb(244, 244, 244);
 	border: none;
 	width: 273px;
 	display: inline-block;
-	padding: 10px;
-	text-align: center;
 
 	.menu-top-row {
 		display: flex;
@@ -20,12 +21,24 @@
 			}
 		}
 	}
-}
 
+	.tabs {
+		margin-top: 10px;
+		display: flex;
+		flex-direction: row;
+		button {
+			flex: 1;
+			padding: 10px;
+		}
+	}
 
-button {
-	min-height: 25px;
-	background-color: darkgrey;
-	color: white;
-	border: 1px solid black;
+	// prevent text selection
+	-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									supported by Chrome and Opera */
+
 }
