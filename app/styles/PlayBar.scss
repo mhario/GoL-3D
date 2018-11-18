@@ -1,0 +1,20 @@
+.play-bar {
+
+	display: flex;
+	flex-direction: row;
+
+	.btn-play {
+		font-size: 20px;
+		height: $btn-size;
+		flex: 2;
+		&.playing {
+			background-color: green;
+		}
+	}
+
+	.btn-step {
+		font-size: 16px;
+		width: 100px;
+	}
+	
+}

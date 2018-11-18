@@ -1,12 +1,10 @@
 @import './tabs.scss';
 
 .menu {
-	background-color: lightgray;
+	background-color: rgb(244, 244, 244);
 	border: none;
 	width: 273px;
 	display: inline-block;
-	padding: 10px;
-	text-align: center;
 
 	.menu-top-row {
 		display: flex;
@@ -20,12 +18,40 @@
 			}
 		}
 	}
-}
 
+	.board-size-row {
+		height: 50px;
+		display: flex;
+
+		.board-size {
+			flex: 1;
+
+			.label {
+				padding: 0 5px;
+			}
+		}
+
+		button {
+			height: 50px;
+			width: 50px;
+			margin: 5px;
+		}
+
+		.current-size {
+			display: inline-block;
+			text-align: center;
+			width: 25px;
+		}
+	}
+}
 
 button {
 	min-height: 25px;
-	background-color: darkgrey;
-	color: white;
-	border: 1px solid black;
+	background-color: rgb(210, 210, 210);
+	border: none;
+
+	img {
+		vertical-align: middle;
+	}
+
 }

@@ -8,13 +8,17 @@ class TabBar extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			currentTab: 'CustomBoard'
+			currentTab: ''
 		}
 
 		this.setCurrentTab = this._setCurrentTab.bind(this)
 	}
 
 	_setCurrentTab(newTab) {
+		if (newTab === this.state.currentTab) {
+			this.setState({ currentTab: null })
+			return
+		}
 		this.setState({ currentTab: newTab })
 	}
 
@@ -60,9 +64,7 @@ function CurrentTab(props) {
 			game={props.game}
 		/>
 	} else {
-		return <CustomBoard
-			game={props.game}
-		/>
+		return null
 	}
 }
 
