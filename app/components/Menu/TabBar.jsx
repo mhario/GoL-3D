@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { CustomBoard } from './CustomBoard/'
-import { RandomBoard } from './RandomBoard/'
-import { SavedBoard } from './SavedBoard/'
+import { CustomBoard } from './Tabs/CustomBoard/CustomBoard.jsx'
+import { Settings } from './Tabs/Settings/Settings.jsx'
+import { SavedBoard } from './Tabs/SavedBoard.jsx'
 
 class TabBar extends React.Component {
 	constructor(props) {
@@ -33,8 +33,8 @@ class TabBar extends React.Component {
 					</button>
 					<button
 						onClick={() => {
-							this.setCurrentTab('RandomBoard')}}>
-						Random Board
+							this.setCurrentTab('Settings')}}>
+						Settings
 					</button>
 					<button
 						onClick={() => {
@@ -55,8 +55,8 @@ function CurrentTab(props) {
 		return <CustomBoard
 			game={props.game}
 		/>
-	} else if (props.currentTab === 'RandomBoard') {
-		return <RandomBoard
+	} else if (props.currentTab === 'Settings') {
+		return <Settings
 			game={props.game}
 		/>
 	} else if (props.currentTab === 'SavedBoard') {

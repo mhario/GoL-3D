@@ -1,7 +1,7 @@
 import React from 'react' // eslint-disable-line no-unused-vars
-import { BoardLifeSlider } from '../../BoardLifeSlider'
+import { BoardLifeSlider } from './BoardLifeSlider.jsx'
 
-export class RandomBoard extends React.Component {
+export class Settings extends React.Component {
 	constructor(props) {
 		super(props)
 	}

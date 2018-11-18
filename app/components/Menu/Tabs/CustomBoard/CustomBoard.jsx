@@ -1,5 +1,5 @@
 import React from 'react'
-import CustomTable from './CustomBoardTable'
+import CustomTable from './CustomBoardTable.jsx'
 
 export class CustomBoard extends React.Component {
 	_increaseFloor() {
