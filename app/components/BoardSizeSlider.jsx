@@ -10,6 +10,7 @@ const _increaseSize = (game) => {
 }
 
 export const BoardSizeSlider = (props) => {
+
 	return (
 		<div
 			className="board-size">
@@ -17,11 +18,14 @@ export const BoardSizeSlider = (props) => {
 				className="label">
 				Size
 			</span>
-			<button onClick={() => _decreaseSize(props.game)}>-</button>
-			<span className="current-size">
-				{ props.game.boardSize }
+			<button 
+				onClick={() => _decreaseSize(props.game)}>-</button>
+			<span
+				className="current-size">
+				{ props.boardSize }
 			</span>
-			<button onClick={() => _increaseSize(props.game)}>+</button>
+			<button
+				onClick={() => _increaseSize(props.game)}>+</button>
 		</div>
 	)
 }

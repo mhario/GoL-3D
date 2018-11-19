@@ -1,8 +1,8 @@
 import React from 'react'
-import { Game, calcTurn } from '../logic/game'
-import TabBar from './Tabs/'
-import { PlayBar } from './PlayBar'
-import { BoardSizeSlider } from './BoardSizeSlider'
+import { Game, calcTurn } from '../../logic/game'
+import TabBar from './TabBar.jsx'
+import { PlayBar } from './PlayBar.jsx'
+import { BoardSizeSlider } from '../BoardSizeSlider.jsx'
 
 export class Menu extends React.Component {
 	constructor() {
