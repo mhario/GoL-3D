@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 
 import { GameView } from './components/GameView' // eslint-disable-line no-unused-vars
 
-var scene, camera, renderer, controls
+var scene, camera, renderer
+window.controls = null
 const BOARD_SIZE = 8
 const CUBE_SIZE = 200
 const offsetValue = BOARD_SIZE * CUBE_SIZE
@@ -23,21 +24,23 @@ function init() {
 	camera = new window.THREE.PerspectiveCamera( 75, width / height, 1, 10000 )
 	camera.position.set( cameraPos, cameraPos, cameraPos )
 
+	window.addEventListener( 'resize', onWindowResize, false )
+
 	renderer = new window.THREE.WebGLRenderer()
 	renderer.setClearColor( 0x55aa55 )
 	renderer.setSize( window.innerWidth, window.innerHeight )
 
-	controls = new window.THREE.OrbitControls( camera, renderer.domElement )
-	controls.enableZoom = true
-
+	window.controls = new window.THREE.OrbitControls( camera, renderer.domElement )
+	window.controls.enableZoom = true
 	var container = document.getElementById( 'game' )
 	container.appendChild( renderer.domElement )
 
-	controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
+	window.controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
+
 }
 
 function render() {
-	controls.update()
+	window.controls.update()
 	renderer.render(scene, camera)
 }
 
@@ -58,6 +61,12 @@ function addLights() {
 	scene.add( light )
 }
 
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight
+	camera.updateProjectionMatrix()
+	renderer.setSize( window.innerWidth, window.innerHeight )
+}
+  
 ReactDOM.render (
 	<GameView />,
 	document.getElementById('app')

@@ -1,7 +1,5 @@
 import React from 'react' //eslint-disable-line no-unused-vars
 
-
-
 export class BoardLifeSlider extends React.Component {
 	_decreaseLife (game) {
 		game.seedRatio -= 0.05

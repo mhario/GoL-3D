@@ -10,11 +10,11 @@ var material, mesh, geometry
 
 function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
-	material = new THREE.MeshPhongMaterial( { color: LIVE_COLOR, wireframe: false })
+	material = new THREE.MeshPhongMaterial({ color: LIVE_COLOR, wireframe: false })
 	material.visible = params.isAlive
 	material.isAlive = params.isAlive
 
-	mesh = new THREE.Mesh( geometry, material )
+	mesh = new window.THREE.Mesh( geometry, material )
 
 	mesh.position.x = params.x * CELL_SIZE
 	mesh.position.y = params.y * CELL_SIZE
@@ -72,6 +72,9 @@ export function buildBoard() {
 		}
 	}
 
+	const targetXYZ = CELL_SIZE * this.boardSize / 2
+	const controlsTarget = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
+	window.controls.target = controlsTarget
 	// creates an array of neighbors on each cell on the board
 	// will not contain cells that are out-of-bounds (invalid)
 	for(let x = 0; x <= this.boardSize - 1; x++){
