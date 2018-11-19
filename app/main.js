@@ -24,6 +24,8 @@ function init() {
 	camera = new window.THREE.PerspectiveCamera( 75, width / height, 1, 10000 )
 	camera.position.set( cameraPos, cameraPos, cameraPos )
 
+	window.addEventListener( 'resize', onWindowResize, false )
+
 	renderer = new window.THREE.WebGLRenderer()
 	renderer.setClearColor( 0x55aa55 )
 	renderer.setSize( window.innerWidth, window.innerHeight )
@@ -34,6 +36,7 @@ function init() {
 	container.appendChild( renderer.domElement )
 
 	window.controls.target = new window.THREE.Vector3(targetXYZ, targetXYZ, targetXYZ)
+
 }
 
 function render() {
@@ -58,6 +61,12 @@ function addLights() {
 	scene.add( light )
 }
 
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight
+	camera.updateProjectionMatrix()
+	renderer.setSize( window.innerWidth, window.innerHeight )
+}
+  
 ReactDOM.render (
 	<GameView />,
 	document.getElementById('app')

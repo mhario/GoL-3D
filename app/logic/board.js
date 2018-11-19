@@ -14,7 +14,7 @@ function Cell(params) {
 	material.visible = params.isAlive
 	material.isAlive = params.isAlive
 
-	mesh = new THREE.Mesh( geometry, material )
+	mesh = new window.THREE.Mesh( geometry, material )
 
 	mesh.position.x = params.x * CELL_SIZE
 	mesh.position.y = params.y * CELL_SIZE
