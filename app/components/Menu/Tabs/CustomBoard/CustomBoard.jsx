@@ -14,6 +14,19 @@ export class CustomBoard extends React.Component {
 		cell.toggleState()
 		this.forceUpdate()
 	}
+	_getSliderPosition() {
+		const level = this.state.level
+		let styleString
+		if (level === 1) {
+			styleString = '0'
+		} else {
+			const positionPercent = level / this.props.game.boardSize
+			styleString = `calc(${positionPercent * 100}% - 50px)`
+		}
+		return {
+			left: styleString
+		}
+	}
 
 	constructor(props) {
 		super(props)
@@ -29,15 +42,18 @@ export class CustomBoard extends React.Component {
 			<div>
 				<div className="slider">
 					<button
+						className="down"
 						onClick={ this.decreaseFloor }>
 						--
 					</button>
 					<div className="slider-bar">
-						<div className="counter">
+						<button
+							style={ this._getSliderPosition() }>
 							{ this.state.level }
-						</div>
+						</button>
 					</div>
 					<button
+						className="up"
 						onClick={ this.increaseFloor }>
 						++
 					</button>
