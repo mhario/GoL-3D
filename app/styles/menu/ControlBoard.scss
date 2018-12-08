@@ -4,7 +4,11 @@
 	button {
 		height: $btn-size;
 		width: $btn-size;
+		position: relative;
 
+		&.up, &.down {
+			@include border(green)
+		}
 		&.up {
 			float: right;
 		}
@@ -16,6 +20,7 @@
 		position: relative;
 		button {
 			position: absolute;
+			@include border(green)
 		}
 	}
 }

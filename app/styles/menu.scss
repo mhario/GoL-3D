@@ -1,4 +1,15 @@
 
+@mixin border($color) {
+	&::after {
+		content: " ";
+		position: absolute;
+		top: 2px; bottom: 2px;
+		left: 2px; right: 2px;
+		border: 1px solid $color;
+	}
+}
+
+
 .menu {
 	@import './menu/PlayBar.scss';
 	@import './menu/BoardSize.scss';

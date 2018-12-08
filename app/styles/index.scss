@@ -12,6 +12,9 @@ $btn-size: 50px;
 		background-color: rgb(210, 210, 210);
 		border: none;
 
+		position: relative;
+		@include border(green);
+
 		img {
 			vertical-align: middle;
 		}
