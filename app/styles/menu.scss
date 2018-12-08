@@ -1,26 +1,13 @@
 
 .menu {
-	@import './PlayBar.scss';
-	@import './BoardSize.scss';
-	@import './ControlBoard.scss';
+	@import './menu/PlayBar.scss';
+	@import './menu/BoardSize.scss';
+	@import './menu/ControlBoard.scss';
 
 	background-color: rgb(244, 244, 244);
 	border: none;
 	width: 273px;
 	display: inline-block;
-
-	.menu-top-row {
-		display: flex;
-		flex-direction: row;
-
-		.btn-play {
-			height: $btn-size;
-			flex: 2;
-			&.playing {
-				background-color: green;
-			}
-		}
-	}
 
 	.tabs {
 		margin-top: 10px;

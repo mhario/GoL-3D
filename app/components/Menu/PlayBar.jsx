@@ -1,11 +1,14 @@
 import React from 'react' //eslint-disable-line no-unused-vars
+var classNames = require('classnames')
 
 export const PlayBar = (props) => {
 
 	return (
 		<div className="play-bar">
 			<button
-				className={`btn-play ${props.isPlaying && 'playing' || '' }`}
+				className={classNames('btn-play',
+					{ 'playing': props.isPlaying }
+				)}
 				onClick={props.togglePlay}>
 				{
 					props.isPlaying
@@ -14,7 +17,10 @@ export const PlayBar = (props) => {
 				}
 			</button>
 			<button
-				className="btn-step"
+				className={classNames('btn-step',
+					{ 'disabled': props.isPlaying }
+				)}
+				disabled={props.isPlaying}
 				onClick={props.stepTurn}>
 				Step Turn
 			</button>
