@@ -18,12 +18,13 @@ $btn-size: 50px;
 
 		&:disabled {
 			opacity: 0.75;
+			background-color: rgb(225, 225, 225)
 		}
 		&:focus {
 			z-index: 10;
-			outline-color: lightgreen;
+			outline: none;
+			box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);
 		}
-		&:focus,
 		&:hover:not(:disabled) {
 			opacity: .7;
 			&:active {

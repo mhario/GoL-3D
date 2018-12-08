@@ -43,6 +43,7 @@ class TabBar extends React.Component {
 					</button>
 				</div>
 				<CurrentTab
+					playing={this.props.playing}
 					currentTab={this.state.currentTab}
 					game={this.props.game}/>
 			</section>
@@ -51,6 +52,7 @@ class TabBar extends React.Component {
 }
 
 function CurrentTab(props) {
+	if (props.playing) return null
 	if (props.currentTab === 'CustomBoard') {
 		return <CustomBoard
 			game={props.game}

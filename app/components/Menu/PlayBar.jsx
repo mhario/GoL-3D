@@ -7,8 +7,7 @@ export const PlayBar = (props) => {
 		<div className="play-bar">
 			<button
 				className={classNames('btn-play',
-					{ 'playing': props.isPlaying }
-				)}
+					{ 'playing': props.isPlaying })}
 				onClick={props.togglePlay}>
 				{
 					props.isPlaying
@@ -18,8 +17,7 @@ export const PlayBar = (props) => {
 			</button>
 			<button
 				className={classNames('btn-step',
-					{ 'disabled': props.isPlaying }
-				)}
+					{ 'disabled': props.isPlaying })}
 				disabled={props.isPlaying}
 				onClick={props.stepTurn}>
 				Step Turn
