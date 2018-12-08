@@ -5,27 +5,24 @@ export class CustomBoard extends React.Component {
 	_increaseFloor() {
 		const cubeSize = this.props.game.board.length
 		const atMaxLevel = this.state.level < cubeSize
-		this.setState({ level: atMaxLevel ? this.state.level + 1 : this.state.level })
+		this.setState({ level: atMaxLevel
+			? this.state.level + 1 : this.state.level })
+		this.forceUpdate()
 	}
 	_decreaseFloor() {
-		this.setState({ level: this.state.level > 1 ? this.state.level - 1 : 1 })
+		this.setState({ level: this.state.level > 1
+			? this.state.level - 1 : 1 })
+		this.forceUpdate()
 	}
 	_toggleCellState(cell) {
 		cell.toggleState()
 		this.forceUpdate()
 	}
-	_getSliderPosition() {
-		const level = this.state.level
-		let styleString
-		if (level === 1) {
-			styleString = '0'
-		} else {
-			const positionPercent = level / this.props.game.boardSize
-			styleString = `calc(${positionPercent * 100}% - 50px)`
-		}
-		return {
-			left: styleString
-		}
+	setBoardSize(e) {
+		// must force type, comes in as string
+		const boardSize = Number(e.target.value)
+		this.setState({level: boardSize})
+		this.forceUpdate()
 	}
 
 	constructor(props) {
@@ -47,10 +44,14 @@ export class CustomBoard extends React.Component {
 						--
 					</button>
 					<div className="slider-bar">
-						<button
-							style={ this._getSliderPosition() }>
-							{ this.state.level }
-						</button>
+						<input
+							type="range"
+							min="1"
+							value={this.state.level}
+							max={this.props.game.boardSize}
+							onChange={(e) => {
+								this.setBoardSize(e)}}
+						/>
 					</div>
 					<button
 						className="up"

@@ -17,10 +17,12 @@
 		height: $btn-size;
 		background-color: grey;
 		width: 100%;
+		padding: 0 15px;
 		position: relative;
-		button {
-			position: absolute;
-			@include border(green)
+		input {
+			height: 100%;
+			width: 100%;
+			margin: 0;
 		}
 	}
 }
