@@ -1,3 +1,4 @@
+@import './colors.scss';
 @import './game.scss';
 $btn-size: 50px;
 
@@ -13,7 +14,7 @@ $btn-size: 50px;
 		border: none;
 
 		position: relative;
-		@include border(green);
+		@include border($green-3);
 
 		img {
 			vertical-align: middle;
@@ -22,6 +23,9 @@ $btn-size: 50px;
 		&:disabled {
 			opacity: 0.75;
 			background-color: rgb(225, 225, 225)
+		}
+		&:active {
+			@include border($green-2);
 		}
 		&:focus {
 			z-index: 10;

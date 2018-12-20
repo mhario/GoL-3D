@@ -68,13 +68,13 @@ input[type=range] {
 		height: 8.4px;
 		cursor: pointer;
 		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-		background: green;
+		background: $green-3;
 		border-radius: 1.3px;
 		border: 0.2px solid #010101;
 	}
 		
 	&:focus::-webkit-slider-runnable-track {
-		background: #367ebd;
+		background: $green-3;
 	}
 		
 	&::-moz-range-track {
@@ -82,7 +82,7 @@ input[type=range] {
 		height: 8.4px;
 		cursor: pointer;
 		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-		background: #3071a9;
+		background: $green-3;
 		border-radius: 1.3px;
 		border: 0.2px solid #010101;
 	}
@@ -97,21 +97,21 @@ input[type=range] {
 		color: transparent;
 	}
 	&::-ms-fill-lower {
-		background: #green;
+		background: $green-3;
 		border: 0.2px solid #010101;
 		border-radius: 2.6px;
 		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 	}
 	&:focus::-ms-fill-lower {
-		background: #3071a9;
+		background: $green-3;
 	}
 	&::-ms-fill-upper {
-		background: #3071a9;
+		background: $green-3;
 		border: 0.2px solid #010101;
 		border-radius: 2.6px;
 		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 	}
 	&:focus::-ms-fill-upper {
-		background: #367ebd;
+		background: $green-3;
 	}
 }
