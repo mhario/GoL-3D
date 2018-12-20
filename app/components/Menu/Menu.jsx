@@ -23,8 +23,7 @@ export class Menu extends React.Component {
 	}
 
 	_togglePlay() {
-		const isPlaying = this.state.playing
-		this.setState({ playing: !isPlaying })
+		this.setState({ playing: !this.state.playing })
 		this.runTurns()
 	}
 

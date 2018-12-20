@@ -8,7 +8,7 @@ class TabBar extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			currentTab: ''
+			currentTab: 'CustomBoard'
 		}
 
 		this.setCurrentTab = this._setCurrentTab.bind(this)

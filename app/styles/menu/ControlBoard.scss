@@ -4,15 +4,22 @@
 	button {
 		height: $btn-size;
 		width: $btn-size;
+		position: relative;
 
-		&:last-child {
+		&.up, &.down {
+			@include border($green-1)
+		}
+		&.up {
 			float: right;
 		}
 	}
 	.slider-bar {
 		height: $btn-size;
-		background-color: grey;
-		width: 100%
+		background-color: $grey-1;
+		width: 100%;
+		padding: 0 15px;
+		position: relative;
+		@import 'sliderStyles.scss';
 	}
 }
 
@@ -22,12 +29,11 @@
 	border: none;
 	width: 100%;
 	.table-cell {
-		background-color: white;
 		display: inline-block;
 		border: 1px solid black;
 		padding: 0;
 		height: 50px; width: 50px;
-		&.live { background-color: green; }
-		&.dead { background-color: red; }
+		&.live { background-color: $green-1; }
+		&.dead { background-color: $green-4; }
 	}
 }
