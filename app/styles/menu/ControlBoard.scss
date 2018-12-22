@@ -6,12 +6,6 @@
 		width: $btn-size;
 		position: relative;
 
-		&.up, &.down {
-			@include border($green-1)
-		}
-		&.up {
-			float: right;
-		}
 	}
 	.slider-bar {
 		height: $btn-size;

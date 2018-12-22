@@ -14,7 +14,7 @@ $btn-size: 50px;
 		border: none;
 
 		position: relative;
-		@include border($green-3);
+		@include border($green-4);
 
 		img {
 			vertical-align: middle;
@@ -30,10 +30,8 @@ $btn-size: 50px;
 		&:focus {
 			z-index: 10;
 			outline: none;
-			box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);
 		}
 		&:hover:not(:disabled) {
-			opacity: .7;
 			&:active {
 				box-shadow: inset 0 0 14px 1px rgba(0, 0, 0, 0.259);
 			}
