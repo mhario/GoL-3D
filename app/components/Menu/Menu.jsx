@@ -66,10 +66,8 @@ export class Menu extends React.Component {
 					stepTurn={ this.stepTurn }
 				/>
 				<div className="board-size-row">
-					<div
-						className="board-size">
-						<span
-							className="label">
+					<div className="board-size">
+						<span className="label">
 							Size
 						</span>
 						<button 

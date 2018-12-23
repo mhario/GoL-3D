@@ -1,3 +1,32 @@
+.slider {
+	display: flex;
+
+	label {
+		width: 100px;
+		padding: 5px 5px;
+		text-align: center;
+
+	}
+	button {
+		height: $btn-size;
+		width: $btn-size;
+		position: relative;
+
+		&.up, &.down {
+			@include border($green-1)
+		}
+		&.up {
+			float: right;
+		}
+	}
+	.slider-bar {
+		height: $btn-size;
+		background-color: $grey-1;
+		width: 100%;
+		padding: 0 15px;
+		position: relative;
+	}
+}
 
 input[type=range] {
 	-webkit-appearance: none;

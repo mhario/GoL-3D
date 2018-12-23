@@ -1,27 +1,4 @@
-.slider {
-	display: flex;
 
-	button {
-		height: $btn-size;
-		width: $btn-size;
-		position: relative;
-
-		&.up, &.down {
-			@include border($green-1)
-		}
-		&.up {
-			float: right;
-		}
-	}
-	.slider-bar {
-		height: $btn-size;
-		background-color: $grey-1;
-		width: 100%;
-		padding: 0 15px;
-		position: relative;
-		@import 'sliderStyles.scss';
-	}
-}
 
 .control-board-table {
 	background-color: white;
