@@ -1,4 +1,5 @@
 import React from 'react' // eslint-disable-line no-unused-vars
+import { SettingsSlider } from './SettingsSlider.jsx'
 
 export class Settings extends React.Component {
 	_setBoardSize (e) {
@@ -15,30 +16,21 @@ export class Settings extends React.Component {
 	render() {
 		return (
 			<div className="settings">
-				Board Settings
-
-				<div className="slider">
-					<label>
-						Life Ratio
-					</label>
-					<button className="down">
-					-
-					</button>
-					<div className="slider-bar">
-						<input
-							type="range"
-							min="0"
-							step="0.05"
-							value={this.props.game.seedRatio}
-							max="1"
-							onChange={(e) => {
-								this.setBoardSize(e)}}
-						/>
-					</div>
-					<button className="up">
-					+
-					</button>
-				</div>
+				<SettingsSlider
+					label="Life Ratio"
+					value={this.props.game.seedRatio}
+					changeHandler={this.setBoardSize}
+				/>
+				<SettingsSlider
+					label="Min. to Live"
+					value={this.props.game}
+					changeHandler={this.setBoardSize}
+				/>
+				<SettingsSlider
+					label="Max. to Live"
+					value={this.props.game}
+					changeHandler={this.setBoardSize}
+				/>
 			</div>
 		)
 	}
