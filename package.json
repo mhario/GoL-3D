@@ -5,12 +5,14 @@
   "main": "main.js",
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
-    "build": "webpack --config webpack.config --progress"
+    "build": "webpack --config webpack.config --progress",
+    "server": "nodemon server/start.js"
   },
   "author": "Mark Hario",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.6",
+    "express": "^4.17.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
