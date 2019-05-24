@@ -1,1 +1,1 @@
-web: nodemon server/start.js
+web: node server/start.js
