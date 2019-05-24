@@ -5,12 +5,11 @@ import {
 
 import { scene } from '../main'
 
-var THREE = require('three')
 var material, mesh, geometry
 
 function Cell(params) {
 	geometry = new window.THREE.BoxGeometry( 200, 200, 200 )
-	material = new THREE.MeshPhongMaterial({ color: LIVE_COLOR, wireframe: false })
+	material = new window.THREE.MeshPhongMaterial({ color: LIVE_COLOR, wireframe: false })
 	material.visible = params.isAlive
 	material.isAlive = params.isAlive
 
