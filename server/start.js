@@ -1,10 +1,10 @@
 'use strict'
-/* global __dirname */
+/* global __dirname process */
 
 const express = require('express')
 const app = express()
 const { resolve } = require('path')
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 module.exports = app
 	.use(express.static(resolve(__dirname, '..', 'public')))
