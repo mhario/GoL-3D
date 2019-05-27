@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx mocha --require babel-core/register --watch --watch-extensions js 'test/*.test.js'",
     "dev": "webpack --config webpack.config --progress",
-    "build": "webpack --config webpack.prod.config --progress",
+    "build": "webpack --config webpack.prod.config",
     "server": "nodemon server/start.js"
   },
   "author": "Mark Hario",

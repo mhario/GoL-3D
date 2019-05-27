@@ -2,6 +2,7 @@
 @import './game.scss';
 $btn-size: 50px;
 
+body { overflow: hidden; }
 #app {
 	@import './menu.scss';
 
