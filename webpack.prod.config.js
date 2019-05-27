@@ -10,7 +10,7 @@ module.exports = {
 		filename: 'public/build/[name].js'
 	},
 	// devtool: 'source-map',
-	watch: true,
+	// watch: true,
 	module: {
 		rules: [
 			{
